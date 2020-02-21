@@ -1,0 +1,1662 @@
+Q) What is Linux?
+	it is an opensource operating system.
+
+Q)what is operating system?
+	it is a interface between user & hardware. and it is a platform to run applications
+
+Q)why we need Linux?
+	- it is virusfree os.
+	- it is robust and stable.
+	- more secured
+ 	- open-source
+    - FOSS --- free and opensource
+
+money based:
+	proprietary  -- microsoft -> windows
+
+	non-proprietary   
+		opensource --> GNU, android
+ 		closed source ---> redhat, ubuntu  --- > AMI ec2, IBM, sunsoloaris.
+Linux flavours:
+--------------
+debian		redhat/centos/fedora/mandriva/caldera (yum)
+ubuntu
+kubuntu
+xubuntu
+kali
+
+
+Virtualization:
+--------------
+- on top of single hardware run multiple machines. (or) multiple machines share single hardware.
+- 2 types of virtualization is their
+	- bare metal	-) on top of hardware install hypervisor 
+	- hosts based	-) on top of host machine install hypervisor
+- it will reduce the IT infrastructure cost and complex.
+- vm ware, oracle virtula box.
+- defaultly some laptops doesnot enable virtualization. so enable in BIOS settings.
+
+
+Hardware required:
+-----------------
+	- i3 processor minimum
+	- 4-8 GB RAM
+	- 50 GB free hard disk minimum
+- if your LAPTOP doesn't support virtualization use cloud computing like AWS, AZURE, GOOGLE CLOUD
+
+Pre-requisites TO install a Centos:
+-----------------------------------
+- download and install "virtual box" (as per your operating system)
+- download ISO image from official website.
+
+Linux installation on oracle virtual box:
+----------------------------------------
+- download virtulabox from official website
+- and install it
+
+installation types:
+-------------------
+full-disk	---) it has complete os, GUI
+DVD		---) pre-installed os in disk, mostly using for test the os
+net-install	---) install from net, not recommended
+minimal 	---) it has required configuration files for os, TUI
+
+GUI	--) Graphical User Interface
+TUI	--) Text User Interface
+
+Install Centos:
+--------------
+- open virtualbox
+- click on "new"
+- give the name of the OS. and choose os flavor & version.
+- assign memory(RAM) size like 1024 MB (1GB)
+- here "create a virtual hard disk now"
+- specify disk file type as "VDI"
+- next memory "dynamically allocated"
+- specify hard disk size (eg: 8GB)
+- next load ISO file to that machine so, goto "settings" of new created item
+- then "storage" --) "controller: IDE" click on "empty",  then right side disk symbol shows. click on disk symbol
+- here you can specify the path of ISO image. next ok
+- then double click on "new machine item" 
+
+Linux booting:
+-------------
+	It is a process to initiate a laptop or desktop with os.
+- when you press the power button then internally some process is going so, that is known as booting process.
+- booting process is follows some steps internally. below are the steps
+
+1 -- Bios -- basic input & output 
+	post (power on self test)
+	hardware ram,rom,cd-rom
+2 -- MBR  -- boot recorder
+3 -- GRUB -- grand united boot loader
+4 -- Kernal -- taker care of os into Ram
+5 -- INIT process
+	0 halt
+	1 single usermode
+	2 multiuser
+	3 full multiuser mode
+	4 unused
+	5 graphical mode
+	6 reboot
+6 -- run level -- /etc/rc.d/rco.d or rc1.d
+	
+1)BIOS:
+------
+- the first stage of booting process when you on/restart your machine the power is supplied to SMPS which converts AC to DC.
+- the DC power is supplied to all device connected to that machine such as processor, RAM, CD-ROM, mouse, keyboard, etc..
+- The most intelligent device in computer is processor(CPU).
+- when power supplied it will start running it's sequence of instructions stored in the memory.
+- The instruction it will run is to pass control to BIOS
+- in BIOS 2 operations are going
+	a)POST (power on self test)
+	b)selecting first boot device
+- post is process of checking H/W availability.
+- BIOS will have list of all devices.
+- In post process it will send an electric pulse to each and every device.
+- if an electric pulse is returned from that device it conclude the h/w working fine and ready for use it.
+- if it does not receive signal from that device. it will treat that device is not working.
+
+2)MBR:
+-----
+- The MBR is the first sector of the computer hard drive that tells the computer how to load the operating system, how the hard drive is partitioned.
+- A master boot record (MBR) is the 512-byte boot sector that is the first sector of a partitioned data storage device of a hard disk.
+
+3)GRUB:
+------
+- It is a multi boot loader package. that supports multiple operating systems on a computer. During boot-up, the user can select the operating system to run. if you are not specified it loads the default kernel.
+ 
+4)KERNEL:
+--------
+- kernel is the core part of the operating system. once control is given to kernel which is the control part of all your OS & act as a mediator between h/w &   s/w.	
+- kernel once loaded into RAM it always resides on RAM until the machine is shutdown.
+- once the kernel start it's operates the first thing it do is executing INIT Process. 
+
+5)INIT:
+------
+- after OS started initial process is starting. it is parent process of the all processes in Os.
+- in "/etc/inittab" in this config file we have the default initialize process is their.
+- It is the first process to start when a computer boots up, and it runs until the system shuts down
+	0 halt
+	1 single usermode
+	2 multiuser
+	3 full multiuser mode
+	4 unused
+	5 graphical mode
+	6 reboot
+	
+6)RUN LEVEL:
+------------
+- when the linux system is bootup, you might see various services getting started.
+- those are run level programs, executed from run level directory as defined by your runlevel
+- depending on your INIT level settings, the system executed the program from one of the following directions.
+
+Runlevel 0- /etc/rc.d/rc0.d/ 
+	 1- /etc/rc.d/rc1.d/ 
+	 2- /etc/rc.d/rc3.d/ 
+	 3- /etc/rc.d/rc3.d/ 
+	 4- /etc/rc.d/rc4.d/ 
+	 5- /etc/rc.d/rc5.d/
+	 6- /etc/rc.d/rc6.d/  
+
+Putty:
+-----
+- it is interface tool to connect with the linux or unix remote servers with ssh.
+- PuTTY is a very versatile tool for remote access to another computer. 
+- It's used more often by people who want secure remote shell access to a UNIX or Linux system.
+
+git bash:
+--------
+- with this also we connect to the remote servers. 
+	ssh root@(ip)
+
+Linux File structure:
+---------------------
+- file structure represents the flow of the Operating System.
+- means what is the operations going on with particular Directory or Drive.
+
+/	-)root it is parent directory of all directory.
+/root	-)root user home directory
+/bin	-)binary information store here
+/sbin	-)system binary information
+/boot	-)booting directory
+/dev	-)devices such as hard disk information here
+/etc	-)all configuration stored here
+/mnt	-)all mounting information
+/opt	-)for 3rd party user applications 
+/proc	-)process information store here
+/sys	-)system information 
+/src	-)service related information.
+/var	-)variable directory
+/usr	-)user applications store here
+/media	-)media related like pendirives & cd-rom
+/tmp	-)temporary directory
+/home	-)users home directory
+
+/ :
+---
+- it is parent directory of all directories in Linux.
+
+/root:
+------
+- it is root(super user) user home directory.
+- he is admin
+
+/bin:
+-----
+- contain all binary files. these are executable files.
+- this files doesn't reflect the system.
+	eg: ls (list of files/dirs)
+
+/sbin:
+------
+- contain executable files which will effect the system 
+	eg: useradd (adding user)
+
+/boot:
+------
+- contain booting related information
+
+dev:
+----
+- contain device related information. like hard disks & disk partitions
+
+/etc:
+-----
+- all configuration files of applications stored here.
+
+/mnt:
+-----
+- mounting points information stored here
+
+/opt:
+-----
+- it is a optional directory 
+- user can store 3rd party application here.
+	eg: maven, tomcat
+
+/proc:
+------
+- it contains process information of computer. foreground & background process like shutdown, etc...
+
+/src:
+-----
+- service related information like kernel service.
+	eg: kernel
+
+/sys:
+-----
+- system information like processor, Ram, Hdd.
+
+/var:
+-----
+- it is variable directory.
+- stores cronjob, logs, mails
+
+/usr:
+-----
+- users applications store here
+	eg: jenkins (yum -y install jenkins)
+- it has /usr/bin & /usr/sbin directories.
+
+/media:
+-------
+- media related like pendirives & cd-rom.
+
+/home:
+------
+- normal users home directory
+
+/tmp:
+-----
+- it is temporary directory
+- stores temporary information.
+
+
+
+Linux commands:
+---------------
+NOTE: LINUX is a case sensitive, because it is written in C.
+
+pwd -- present working directory
+cd --- change directory
+ls --- list
+ls - l (long list)
+ls -r (list in reverse)
+ls -a (all files include hidden)
+ls -h (shows in KB, MB size of file)
+mkdir -- to create a directory
+rmdir -- to remove a  directory (directory must be empty)
+touch -- for file creation
+rm -- to remove a file
+rm -f --> to remove forcefully
+rm -r -- > to remove directory
+rm -v --> verbose mode for acknowledgment
+cp (source) (destination) --> for copy a file
+cp -r (source) (destination) --> for copy a directory
+cp -f --> forcefully copy
+cp -v --> verbose mode for acknowledgement
+mv (source) (destination) --> move from one place to another place (or) rename purpose
+echo ----> display varables data on screen
+cat --- for printing data on screen and take data from keyboard to file
+	cat file (to see content on screen)
+	cat > file (craete a file & place the content into the file)
+	cat >> file (append the content to the exist content)
+> -- redirect the content
+|(pipe) -- o/p of 1st command to the i/p of 2nd command
+history -- to see previous commands (shows 10 lines only)
+less -- less same as cat but it will show data page by page. it divides page into 24 lines.
+	f --> for forward
+	b --> for backword
+	/ --> search
+	q --> for quit
+more ---> same as less
+wc --> word count (number of lines, words, characters)
+whoami --> shows who is login
+id --> shows the details of user and his existence
+uname -a --> it gives entire system infomation
+head -- shows top 
+tail -- shows bottom
+
+Linux Shell:
+------------
+- in os there is a special program is called "shell".
+- shell is interpretor
+- shell takes the commands from user and execute it.
+- and it will gives the result as user understandable.
+
+Types of Shell:
+---------------
+- bash shell
+- C shell
+- K shell
+- T shell
+
+NOTE: each shell does the same task in different way, syntax and functionality is different.
+----
+- default shell in Linux is BASH.
+
+Q)TO check the available shells in your system
+	cat /etc/shells
+
+Q)TO find your current shell?
+	echo $SHELL
+
+
+Linux Environment Variables:
+----------------------------
+- echo $DISPLAY
+- echo $EDITOR
+- echo $SHELL
+- echo $USER
+- echo $HOME
+- echo $IFS
+- echo $GROUP
+- echo $HOSTNAME
+- echo $LOGNAME
+- echo $PS1	--) which contains the value of the default prompt username, hostname, working dir
+- echo $PS2	--) is the secondary prompt displayed when a command needs more input (e.g. a multi-line command).
+- echo $TERM
+- echo $PATH
+
+Linux Filters:
+--------------
+- head
+- tail
+- grep
+	grep -i "^p" /etc/ssh/sshd_config | less
+	grep -i "yes$" /etc/ssh/sshd_config |less
+- wc
+- sort
+- cut
+- paste
+- awk
+	ps -ef | awk '{print $0}' -- for all fields
+	ps -ef | awk '{print $1,$3}'  -- for 1st and 3rd field
+	ps -ef | awk '/38/{print $1, $5}'  -- if any field match with 38 display 1,5 field
+	ps -ef | awk '$2="41"{print $1, $5}'  -- if 2nd field match 41 display 1s tand 5 th field
+
+- sed
+	ps -ef | sed -n '6p' -- display 6th line
+	ps -ef | sed -n '1,5p' -- display from 1 to 5 lines
+	ps -ef | sed -n '$p'  -- for last line
+	ps -ef | sed -ne '/38/p' -- search for 38
+
+
+if you have a file /tmp/a with the contnet
+
+hello my friend
+
+You can use sed to replace strings:
+
+sed -i 's/hello/hi/g' /tmp/a
+sed -i 's/LOCAL/REPLICATED/g' WEB-INF/classes/ignite-config.xml
+
+this will result in:
+
+hi my friend
+
+- find 
+	find / -name "ssh"
+	find / -empty
+	find / -size 1024
+
+- locate
+	yum -y install mlocate
+
+how to delete files/dir older dates?
+
+List files before delete
+
+  find . -type f -ctime +60  -ls
+  find . -type f -ctime +60 -exec rm -rf {} \;
+
+List directories before delete
+
+  find . -type d -ctime +60  -ls
+  find . -type d -ctime +60 -exec rm -rf {} \;
+
+archival (tar):
+--------------
+	group of files combine into single file is called archival.
+	
+	tar -cvf ramu.tar "archival dir location"	--> for archival
+	tar -tvf ramu.tar 				--> to see files in tar file
+	tar -rvf ramu.tar "file name"			--> to add a file into existing tar file
+	tar -xvf ramu.tar "filename" 			--> extract the tar file
+
+
+compression (gzip & bzip2):
+--------------------------
+	gzip abc --> compress into abc.gz
+	gzip -d abc.gz 	--> back to normal abc file
+	gunzip abc.gz	--> back to normal also
+
+	bzip2 abc   --> compress into abc.bz2
+	bzip2 -d abc.bz2   --> back to normal abc file
+	bunzip abc.bz2     --> back to normal abc file
+	
+	zip ram abc	---> compress abc into ram
+	unzip ram.zip	---> for unzipping
+
+archival and compression (tar):
+------------------------------
+	Applicable for exact name & directory
+	
+	arhive & compress (tar,gz)
+	tar -zcvf krishna.tar.gz krishna
+	tar -zxvf krishna.tar.gz krishna
+	
+	arhive & compress (tar,bz2)
+	tar -jcvf krishna.tar.bz2 krishna
+	tar -jxvf krishna.tar.bz2 krishna
+
+extract to differnt directory:
+------------------------------
+	tar -xvfz krishna.tar.gz -C "destination path"
+ 
+
+links:
+-----
+- soft links: it means shortcut to the original file, won't change the orignial file with this link
+	cd  ln -s "original file name" "shortcut path"
+	unlink "softlink"
+- hard links: clones the original file, if any changes to the hard link thisk will effect to the original file
+	ln "original file" "shortcut path"
+	unlink "hardlink"
+
+Q)how to change hostname in linux by cmd?
+	- hostnamectl set-hostname "hostname"
+	
+user management:
+----------------
+	user: who can utilize system resources such as ram,rom,cpu,etc..
+Q)different types of users?
+
+system users		- (0-99)	admins, root
+appliaction users	100-999		apache, tomcat
+normal users		500-60000+	ram,prathiba,krishna
+
+important files:
+---------------
+	/etc/passwd	--> user information
+	/etc/shadow	--> user password information & age information
+	/etc/group	--> group information
+
+1)etc/passwd:
+-------------
+	7 fields are in this file
+1)username : 2) legacy field : 3)uid : 4)group id : 5)text user info : 6)user home directory : 7)shell
+
+2)etc/shadow:
+-------------
+	8 field are their
+1)user name: 2)encrypt_pass
+
+3)/etc/group:
+-------------
+	4 fields are their
+1)group name 2)dummy pass 3)group id 4) number of users 
+
+
+- useradd (username) 	-> create a user
+- usermod (username)	-> to modify user
+- userdel (username)	-> to delete a  user
+- groupadd (group name)	-> to create a group
+- groupmod (group name)	-> to modify group
+- groupdel (group name)	-> to delete a group
+- whoami 		-> shows whos login
+- id (username)		-> shows details about user & it's existence
+- passwd (username)	-> to change a user password
+- chage	(username)	-> to change a password age information about user
+- sudo		-> temporary root access
+- su		-> switch to differnt user
+- chmod		-> change file permission
+- chown 	-> change owener ship of file
+
+to add user into group:
+	usermod -aG sales prathiba
+	usermod -aG wheel prathiba
+
+Q)how to give sudo sccess to normal user?
+	- switch to root
+	- visudo
+	- usermod -aG 
+Q)how to lock user?
+	!! -> password not set
+	!$.... > password lock
+	$... > password set
+	
+	sudo usermod -L "user name"	-> to lock a user
+	sudo usermod -U "user name"	-> to unlock user
+
+file permissions:
+-----------------
+	-rw-rw-r-- 	->file
+	drw-rw-r-- 	->directory
+	lrw-rw-r-- 	->link
+
+	- |rw-|r-x|r--| 
+	   user|group|other
+	   110 | 101| 100
+	r ->read
+	w ->write
+	x ->executable
+
+	chmod 770 abcd
+	chown -R ec2-user:sales "file name"
+	chown -R ec2-user "file name"
+	chown -R :sale "file name"
+
+package management:
+-------------------
+	it will manage the installation, updating, deleting, upgrade packages
+
+Q)what is package?
+	it is collection of related files.
+	code
+	manual page
+	examples
+	configuration files
+	images
+	sound files
+	videos
+
+Q)how package is available?
+	- compress 	(.tar.gz)
+	- signature	()
+	- dependent list()
+
+centos/redhat		ubuntu/debian		windows
+	
+rpm/yum			dpkg/apt-get		.msi/.exe
+
+Q)what is rpm?
+	redhat package manager. it is a package meangement utility.
+
+command:
+	rpm	-q (query)	-a (all packages)
+				-i (package info)
+				-l (list)
+				-f (file check)
+Q)how can we see all installed packages in centos?
+	rpm -qa
+	(package name).(version).(release).(architecture)
+
+Q)how to find os version?
+	cat /etc/os-release (or) uname
+
+Q)how to get installed package name?
+	rpm -qi "package name"
+
+Q)how to see the packages file?
+	rpm -ql "package name"
+
+Q)how to check a file associated with package?
+	rpm -qf "file name"
+
+Q)how to check configuartion file of the package?
+	rpm -qc "package name"
+
+Q)how to check the package information before install?
+	rpm -qpi "package url"
+
+Q)how to check pckage is corrupt or not?
+	rpm -Vvf /bin/ls
+
+Q)how to download files in linux?
+	- wget (url)
+	- curl (url) -o filename
+Q)how to install package?
+	- get the url & download
+	- install
+	rpm -ivh "package name"
+		-i (install)
+		-v (verbose)
+		-h (hashtag bar)
+Q) how to uninstall package?
+	rpm -e "package name"
+
+Q)how to upgrade package?
+	rpm -Uvh "package link"
+
+## RHEL/CentOS 7 64-Bit ##
+# wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+# rpm -ivh epel-release-latest-7.noarch.rpm
+
+YUM (yellowdog updater modifier):
+--------------------------------
+- it is a package management utility in centos/redhat.
+- here we can install the packages from yum repositories automatically. yum repos configure in local machine "/etc/yum.repo.d" file.
+- while install the package it will download from the nearst mirror site. while download any problem face with that site it will automatically redirect   to the another mirror site.
+- while installing it will check signature in the main mirror site. if that signature match then only package installed successfully, otherwise     installation is not possible.
+- so here installation is only from official site only so,no chance to get the virus.
+- that's why linux is antivirus os.
+
+Q)where are my pointer files?
+	/etc/yum.repos.d
+
+Q)yum commands?
+
+	yum -y update			-> to update
+	yum -y upgrade			-> to upgrade
+	yum -y install "package name"	-> to install package  
+	yum -y remove "package name"	-> to remove a package
+	yum --exclude="package name" update -> update except with this package
+ 	yum update "package name"	-> update that package
+	yum repolist			-> repo list in system
+	yum provides "package name"	-> provided package information
+	yum search "package name"	-> search for package
+	yum info "package name"		-> package information
+	yum clean all			-> to clean cache
+	yum list installed		-> to see installed packages
+
+
+network management:
+------------------
+Q)what is computer networking?
+	internal communication between computers, nodes, n/w gears, routers, etc.. together
+
+- ipaddress:	it is a unique number given to your device in the n/w.
+	ipaddress=network+node
+	ip addr show
+	ip a
+	ifconfig
+- netmask:	it is a boundaries of your network
+	255.0.0.0
+	255.255.0.0
+	255.255.255.0
+	eg1:	ip:192.168.43.26
+	   netmask:255.255.255.0
+	   network:192.168.43.0
+	      node:26
+
+	eg2:	ip:192.168.5.20
+	   netmask:255.255.0.0
+	   network:192.168.0.0
+	      node:5.20
+- gateway:	it is device, through which the packets will go out of your n/w and come into your n/w.
+		eg:routers,switches,comuputers
+		gateway:192.168.43.1
+
+- DNS:		it is domain name service, which will help you to convert ip address to name and name to ipaddress.
+	
+	google.com=8.8.8.8
+	yahoo.com=4.4.4.4
+
+	In UDP service (no feedback, user datagram protocol)
+	In TCP service (feedback, trasnmission control protocol )
+
+		ip:192.168.43.26
+	   netmask:255.255.255.0
+	   network:192.168.43.0
+	   gateway:192.168.43.1
+	 broadcast:192.168.43.255
+	      node:26
+	       DNS:192.168.43.1, 230.256.212.22, 8.8.8.8
+		we have minimum 3 dns ip's
+	- some n/w's have more gateways's.
+
+Q)how can i get all these details?
+	- Manual
+	- dhcp service (dynamic host configuration protocol)
+		ip,gateway,netmask,dns
+
+your router will provide:
+
+- dhcp
+- dns
+- gateway
+- firewall
+- NAT
+- your router will convert your private packate to public packet. our router also have public ip this ip will send to google/yahoo.
+
+dhcp:
+----
+	it is a service will provide a dynamic ip address and other information to your laptop/desktop/other devices.
+	NAT- private ip
+	bride - public ip in the n/w
+
+
+Q)which file will store above the details?
+
+ipaddress:	/etc/sysconfig/network-scripts
+dns:		/etc/resolve.conf
+hostname:	/etc/hostname
+
+FQDN-- localhost.localdomain.com(fully qualified domain name)
+
+ip address: ifconfig
+netework  : ifconfig
+gateway   : netstat -nr
+dns	  : nslookup (or) dig
+
+- to see "ifconfig" install net-tools package
+- to see "nslookup" command install bind-utils package
+- default port number of dns is 53
+
+network tools:
+--------------
+- ifconfig: for ip	(yum -y install net-tools)
+	ifconfig
+
+- netstat: for gateway
+	netstat -nr 
+	netstat -a | less --> all ports in n/w
+
+- ping: ping is samall internet program, it allows you to check ip is exist or not.
+	ping 192.168.43.25
+
+- traceroute: shows to reach the destination how many hubs are their.
+	traceroute 172.168.25.36
+
+- nslookup: to check dns	(yum -y install bind-utils)
+	nslookup google.com
+
+- dig: same as nslookup but more info
+	dig google.com
+
+- whois: tell whois this 	(yum -y install whois)
+	whois facebook.com
+
+- telenet: same as ssh but not encrypted
+	telenet 192.168.43.25 23 (yum -y install telnet)
+
+Q)how to assign static ip to the machine?
+	go to vi /etc/sysconfig/network-scripts/ifcfg-eth0
+	BOOTPROTO=static/none
+	IPADDR=172.31.17.55
+	NETMASK=255.255.240.0
+	GATEWAY=172.31.16.1
+	DNS1=8.8.8.8
+	DNS2=172.31.0.2
+Q)how to restart service?
+	systemctl restart network
+
+ 
+Q)how to work with private vm?
+	using port forwarding
+
+Network clients:
+---------------
+	network clients consist some tools that are to connect another server or system, and some tools are transmitting files b/w servers.
+
+a)ssh(secure shell):
+-------------------
+	we can login to the system, copy files b/w servers securely.
+	- ssh (username)@(ip)
+	- ssh -l (username) (ip)
+
+b)scp (secure copy):
+-------------------
+	copy the files between the servers in secure way. data transmitting is encrypted.
+	- scp (file1) (file2).. (username)@(ip):(path to copy) --> copy from current server to remote 
+	- scp (username)@(ip):(path of file) (path to copy) --> copy from remote server to current
+	- scp -r (dir1) (dir2).. (username)@(ip):(path to copy) --> copy dir from cureent server to remote
+	- scp -r (username)@(ip):(path of dir) (path to copy) --> copy dir from remote server to current
+
+c)ftp:
+-----
+	file transfer protocol, for transfering files between servers
+	- yum -y install ftp
+	- sftp (ip)
+ 		username :
+		password:
+	- ls (remote files list)
+	- lls (local list)
+	- cd (change directory in remote)
+	- lcd (cd in local)
+	- get (file) (download file from remote to local)
+	- mget (for multiple files download)
+	- put (file) (upload from local to remote)
+	- mput (for multiple files upload)
+d)wget:
+------
+ 	download file from net.	
+	- wget (url)
+	- wget -o (name) (url)
+
+e)rsync:
+-------
+	rsync is a free software, use to synchronize the file & directories from one server to another server
+	it saves a lot of time & n/w bandwidth.
+	- rsync -av (source) (destination)
+		eg: - rsync -av /root/Documents (remote ip):(path)
+		- rsync -av --port=3212 (source) (remote destination)	-> if remote server change port number
+		- rsync -av -e 'ssh -p 3212' (source) (remote destination)  -> if remote server doesnot have rsync
+		- rsync -av --progress (source) (remote destination)	->to see progress
+		- rsync -av --max-size="5M" (source) (remote destination) 	->for max file size is 5MB, it copies less than 5MB only
+		- rsync -av --delete (source) (remote destination)	-> for delete remote & local files
+	
+disk management:
+----------------
+	disk management do the administration tasks on hard disks, such as partioning, storage allocation, logical voumes, etc..
+
+a)quota management:
+-------------------
+	quota management allows administrator to users set the limits on storage uses.
+	-> cd /home
+	-> usrjquota=aquota.user,grpquota=aquota.group,jqfmt=vfsv0
+	mount the directory because all the users & groups are working under this directory only.
+	-> mount -o remount /home
+	-> quotacheck -avugm
+	activate quota by below command
+	-> quotaon -avug
+	to see the space & size for the users
+	-> repquota /home
+	we can set the limited space to the user
+	-> setquota -u (user) -F vfsv0 (initial size)0 (how much space)(500mb) 00 /dev/xvda2(moounted device)
+	-> setquota -u ram -F vfsv0 0 500000(500mb) 00 /dev/xvda2
+	to check quota of users
+	-> repquota /home
+	we can edit quota manually
+	-> edquota (username) --> file is open edit the data
+	we can set the limit to group
+	-> setquota -g sales -F vfsv0 0 2000000(2 Gb) 00 /dev/xvda2
+	for manual edit
+	->edquota -g sales
+	to off the quota
+	-> quotaoff -avug
+
+b)parted utility:
+----------------
+	parted utlity is using to manipulated system hardisk, we can partition the hard disk use parted add, delete, edit the partitions and file system.
+
+Q)how to install parted utility?
+	-> yum -y install parted
+
+Q)how to partitions in linux?
+	parted -l
+to partition a hardisk (or) volume
+	parted /dev/xvdf(device name)	-> take to the parted terminal of this disk
+(parted)mklabel gpt (label name)	-> if disk has no label
+(parted)mkpart primary 1 10GB		-> it parted from 1mb to 10 gb
+(parted)p				-> show the partitions in this disk
+(parted)q				-> quit 
+
+make that disk as a file system as "ext4","xfs",...
+	-> mke2fs -t ext4 -j /dev/xvdf1
+to mount this hard disk create a directory
+	-> mkdir /ram
+	-> mount /dev/xvdf1 /ram 	-> xvdf1 disk mount as /ram directory 
+	-> df -h	-> check the mount points 
+to permanently use that disk use the "/etc/fstab" file
+	-> vi /etc/fstab
+	 /dev/xvdf1 	/ram ext4 defaults 1 2
+	-> mount -a
+
+c)fdisk utility:
+---------------
+	we can perform partitions on hardisk use this utility.
+Q)command to see partitions?
+	-> fdisk -l
+Q)how to partitions using fdisk?
+	-> fdisk /dev/xvdf (hard dsik)
+(command) m (for help)
+(command) p (to see partition devices)
+(command) n (for new partition)
+(command) partition number(default 2):2
+(command) first sector (default 1000252):
+(command) last sector (1555555-2255255565):+5G (K,M,G,T,P)
+(command) p (for partitions)
+(command) t (to change the file system)
+(command) w (to save that partition)
+	to applicable this partition reboot the system
+	-> reboot
+to assign file system "ext4","xfs" to that devices
+	-> mkfs.xfs /dev/xvdf2
+to mount that device as directory
+	-> mkdir /krishna
+	->mount /dev/xvdf2 /krishna
+to permanently use that disk use the "/etc/fstab" file
+	-> vi /etc/fstab
+	 /dev/xvdf2 	/krishna xfs defaults 1 2
+	->mount -a
+
+d)Swap partitions:
+-----------------
+	- swap area is helpful when RAM is full, move the inactive files to the swap area from RAM.
+
+Q)how to create swap area?
+	using fdisk utility.
+	-> fdisk /dev/xvdf
+after partitioning change the "file type" 
+(command) t	-> for change file system
+(command) (device number 1-3, default 3):3
+(command) (type):19 (Linux Swap)
+(comand) w
+to apply this partition reboot the system
+	-> reboot
+then make that device as swap area
+	-> mkswap /dev/xvdf3
+to enable swap area
+	-> swapon -v /dev/xvdf3
+To see the swaping partition
+	-> swapon -s
+To display the memory 
+	-> free -m
+to off the swap
+	-> swapoff -v /dev/xvdf3
+To add permantely this swap area store in "/etc/fstab" file
+	-> vi /etc/fstab
+	/dev/xvdf3 swap swap 0 0
+	
+	-> mount -a
+
+e)swap file:
+-----------
+- swap file is used to allow os to simulate as extra space to hard disk. swap file doesnot occupy memory, it utilize hard disk & extend swap area
+	-> dd if=/dev/zero of=/swap1g bs=1024 couunt=1048576
+- here dd will copy "if" to "of", block size is 1024, it has count upto 1048576
+- here we can add zero data to "swap1g" file
+- if you want make that file as swap file
+	-> mkswap /swap1g
+enable that file
+	-> swapon -v /swap1g
+so here swap area increased by +1GB 
+	-> free -m
+to save in "/etc/fstab" file
+	-> vi /etc/fstab
+	/swap1g		swap 	swap	0 0
+to remove that file & swapoff that file
+	-> swapoff -v /swap1g
+	-> rm -f /swap1g		
+	
+f)Logical Volume Manager (LVM):
+------------------------------
+	it is for the linux kernel, it manages the disk drive and mass storage devices, the term volume refers the disk drive (or) partition. To extend the partition we make a logical volume drive.
+- first we make some partitions using "parted" or "fdisk"
+- after partition chnage that partition type as "LVM" 
+- if we use parted "set 4(partition number) lvm on"
+- if we use fdisk "using "t" to change partition type"
+- after create partiton and changing it's partition type to "LVM" create physical volumes
+	-> pvcreate /dev/xvdf1 /dev/xvdf2
+- to display physical volumes
+	-> pvdisplay
+- with that physical volumes create the volume group
+- to create volume group
+	-> vgcreate (volume group name) (partitions)
+	-> vgcrete myvgname /dev/xvdf1 /xvdf2
+- to see the logical volume groups
+	-> vgdisplay
+- from that logical group only we can create logical volumes
+- to create logical volumes 
+	-> lvcreate -L (size) -n (logical voume name) (logical volume group name)
+	-> lvcreate -L 7GB -n mylvname myvgname
+- to see the logical volumes 
+	-> lvdisplay
+- to assign file system (ext4,xfs,ext3..) to the logical volumes
+	-> mke2fs -t ext4 -j /dev/myvgname/mylvname
+- to mount that logical volume
+	-> mkdir /ramu
+	-> mount /dev/myvgname/mylvname /ramu
+- to store permanently use "etc/fstab" file
+	-> vi /etc/fstab
+	/dev/myvgname/mylvname	/ramu	ext4 defaults 1 2
+	->mount -a
+- to extend logical voume group, create new partition and make that partition as physical
+	-> pvcreate /dev/xvdf3
+	-> vgextend myvgname /dev/xvdf3
+	-> vgdisplay
+- to extend logical volume 
+	-> lvresize -L 12GB /dev/myvgname/mylvname 
+- to apply that extended logical volume to that directory 
+	-> resize2fs /dev/myvgname/mylvname 12G
+- to rename the logical volume
+	-> lvrename (vgname) (lv old name) (lv new name) 
+	-> lvrename myvgname mylvname mylv2
+- to rename logical group
+	-> vgrename (old vg name) (new vg name)
+	-> vgrename myvgname myvg2
+
+g)RAID (redundant array of independent disks):
+----------------------------------------------
+	group of disks act as a single large disk
+	there are different RAID systems such as RAID0, RAID1, RAID5, RAID10
+
+RAID 0:
+-------
+	RAID 0 splits data across any number of disks allowing higher data throughput,when one of them fails, it breaks the array and results in data loss. RAID 0 is usually implemented  for caching live streams and other files where speed is important and reliability/data loss is secondary.
+
+- to create raid cylindrical systems use the "mdadm" 
+	-> yum -y install mdadm
+- to create "raid0"
+	-> mdadm --create /dev/md0 --level=0 --raid-devices=2 /dev/xvdg /dev/xvdh
+- from above 2 hard disk raid0 is created, make that raid0 as "ext4" file system
+	-> mke2fs -t ext4 -j /dev/md0
+- to mount that "/dev/md0"
+	-> mkdir /raid0
+	-> mount /dev/md0 /raid0
+- to store permantely use "/etc/fstab" file
+	-> vi /etc/fstab
+	/dev/md0	/raid0	ext4 defaults 1 2
+- to see the "md0" raid details
+	-> mdadm --details /dev/md0
+- to scan the "md0"
+	-> mdadm --detail --scan /dev/md0
+- to delete the disks from "md0"
+	-> mdadm /dev/md0 -r /dev/xvdg
+- to remove raid0
+	-> mdadm --remove /dev/md0
+		(or)
+	-> mdamd --stop /dev/md0
+- then umount that directory
+	-> umount /raid0
+RAID 1:
+------
+	RAID 1 writes and reads identical data to pairs of drives. This process is often called data mirroring and it’s a primary function is to provide redundancy. If any of the disks in the array fails, the system can still access data from the remaining disk(s).
+
+- to create "raid1"
+	-> mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/xvdi /dev/xvdj
+- from above 2 hard disk raid0 is created, make that raid0 as "ext4" file system
+	-> mke2fs -t ext4 -j /dev/md1
+- to mount that "/dev/md1"
+	-> mkdir /raid1
+	-> mount /dev/md1 /raid1
+- to store permantely use "/etc/fstab" file
+	-> vi /etc/fstab
+	/dev/md1	/raid1	ext4 defaults 1 2
+- to see the "md0" raid details
+	-> mdadm --details /dev/md1
+- to scan the "md1"
+	-> mdadm --detail --scan /dev/md1
+- to add another disk to the raid
+	-> mdadm --manage /dev/md1 --add /dev/xvdo 
+- to delete the disks from "md0"
+	-> mdadm /dev/md1 -r /dev/xvdg
+- to grow raid system
+	-> mdadm --grow /dev/md1 --raid-devices=3 --add /dev/xvdp
+- to remove raid1
+	-> mdadm --remove /dev/md1
+		(or)
+	-> mdamd --stop /dev/md1
+- then umount that directory
+	-> umount /raid1
+
+RAID 5:
+-------
+	RAID 5 stripes data blocks across multiple disks like RAID 0, however, it also stores parity information (Small amount of data that can accurately describe larger amounts of data) which is used to recover the data in case of disk failure.If any of the disks in the array fails, data is recreated from the remaining distributed data and parity blocks. It uses approximately one-third of the available disk capacity for storing parity information.
+- to create RAID 5 need 4 hardisks
+
+- to create "raid5"
+	-> mdadm --create /dev/md5 --level=5 --raid-devices=4 /dev/xvdk /dev/xvdl /dev/xvdm /dev/xvdn
+- from above 4 hard disks raid5 is created, make that raid5 as "ext4" file system
+	-> mke2fs -t ext4 -j /dev/md5
+- to mount that "/dev/md5"
+	-> mkdir /raid5
+	-> mount /dev/md5 /raid5
+- to store permantely use "/etc/fstab" file
+	-> vi /etc/fstab
+	/dev/md5	/raid5	ext4 defaults 1 2
+- to see the "md5" raid details
+	-> mdadm --details /dev/md5
+- to scan the "md5"
+	-> mdadm --detail --scan /dev/md5
+- to delete the disks from "md5"
+	-> mdadm /dev/md5 -r /dev/xvdg
+- to remove raid5
+	-> mdadm --remove /dev/md5
+		(or)
+	-> mdamd --stop /dev/md5
+- then umount that directory
+	-> umount /raid5
+
+RAID 10:
+--------
+	RAID 10 combines the mirroring of RAID 1 with the striping of RAID 0. Or in other words, it combines the redundancy of RAID 1 with the increased performance of RAID 0. It is best suitable for environments where both high performance and security is required.
+
+- to create RAID 10 need 4 hardisks
+
+- to create "raid10"
+	-> mdadm --create /dev/md10 --level=10 --raid-devices=4 /dev/xvdk /dev/xvdl /dev/xvdm /dev/xvdn
+- from above 4 hard disks raid5 is created, make that raid5 as "ext4" file system
+	-> mke2fs -t ext4 -j /dev/md10
+- to mount that "/dev/md10"
+	-> mkdir /raid10
+	-> mount /dev/md10 /raid10
+- to store permantely use "/etc/fstab" file
+	-> vi /etc/fstab
+	/dev/md10	/raid10	ext4 defaults 1 2
+- to see the "md0" raid details
+	-> mdadm --details /dev/md10
+- to scan the "md10"
+	-> mdadm --detail --scan /dev/md10
+- to delete the disks from "md5"
+	-> mdadm /dev/md10 -r /dev/xvdg
+- to remove raid5
+	-> mdadm --remove /dev/md10
+		(or)
+	-> mdamd --stop /dev/md10
+- then umount that directory
+	-> umount /raid10
+
+
+iptables:
+--------
+	- iptables protects the system from outside threats. (centos 6)
+- in ipables 3 main parts 1)input 2)forwarded 3)output
+	- input means packets incoming to the system.
+	- forwarded routing the packets, if your system act as router.
+	- output means packets going from your system
+- to install iptables
+	-> yum -y install iptables-service
+- to start/stop/restart iptables
+	-> systemctl start/stop/restart ipatables
+- to see the rules, ip's, source& destination
+	-> ipatbles -nL
+a)INPUT:
+-------
+- to see the rules, ip's, source& destination with numbers
+	-> ipatbles --line-numbers -nL
+- we can apply the allow/deny rules in ipatbels. here we can specify allow & deny the particular ip's in the table list. 
+- to apply a input ACCEPT/DROP rule
+	-> iptables -I INPUT -s (source ip) --dport (port number) -j ACCEPT/DROP
+- to save iptables
+	-> service iptables save
+		data store in "/etc/sysconfig/iptables" file
+- to delete rule
+	-> iptables -D INPUT 1
+b)OUTPUT:
+--------
+- to block the particular ip's/websites from your machine
+	-> iptables -A OUTPUT -p tcp -d (ip/website) -j DROP
+- to block all protocols 
+	-> iptables -A OUTPUT -d (ip/website) -j DROP
+- to delete rule
+	-> iptables -D OUTPUT 1
+
+
+firewall:
+--------
+- firewall is the protection layer of machine. it blocks the malicious content from outside.
+- in centos 7/redhat 7 by default firewall is their. in centos 6 iptables are using
+- to install firewall 
+	-> yum -y install firewalld
+	-> yum -y install firewall-config
+- to start the firewall
+	-> systemctl start firewalld
+- to enable the firewall
+	-> systemctl enable firewalld
+- here zones are their. in the zones we specify the rules
+- to see the zones in machine
+	-> firewall-cmd --get-zones
+- to see the default zone
+	-> firewall-cmd --get-default-zone
+- to see the default zone rules
+	-> firewall-cmd --list-all
+- to see particular zone rules
+	-> firewall-cmd --list-all --zone=home
+- to add a service to the zone
+	-> firewall-cmd --add-service=http --permanent
+- to remove a servie from the zone
+ 	-> firewall-cmd --remove-service=http --permanent
+- to reload the firewall	
+	-> firewall-cmd --reload
+- to add a port
+	-> firewall-cmd --add-port=80/tcp --permanent
+- to don't access the system from outside
+	-> firewall-cmd --panic-on
+- to remove panic
+	-> firewall-cmd --panic-off
+
+
+
+
+Antivirus in Linux:
+-------------------
+- update the os with "epel"
+	-> sudo amazon-linux-extras install epel
+- then install "clamav"
+	-> yum -y install clamav
+- we can update that clamav
+	-> /usr/bin/freshclam
+- to scan files & directories in linux we can the "clamscan" command
+	-> clamscan /etc
+- to see infected files & every file
+	-> clamscan -r /etc
+- to show virus end of the file
+	-> clamscan -ir /etc
+- to save scanning files into another file
+	-> clamscan -rl /home/log.txt
+- to remove infected files
+	-> clamscan --remove /etc
+- to remove infected files from dir & sub dir
+	-> clamscan -r --remove /etc
+
+cron jobs:
+----------
+	we can schedule the tasks in linux, cron wake up every minute and check the cron file if any tasks are it will execute that.
+	cron file has 6 fields
+	1	2	3	4	5	6
+	min	hour	dom	month	dow	command
+	(0-59)	(0-23)	(1-31)	(1-12)	(0-6)
+
+	application name is "cronie"	
+	service name is "crond"
+Q)how to open cronfile?
+	crontab -e
+	/var/spool/cron/(user cronfile)
+
+Q)how to see content in cronfile?
+	crontab -l
+
+Q)how to see specific user cronjobs?
+	crontab -u (user name) -l
+
+Q)how to see cron logs?
+	/var/log/cron
+
+Q)mail directory?
+	/var/spool/mail/(user name)
+
+Q)how to send a tasks o/p to mail?
+	MAILTO="mail id"
+	* * * * * (command) 
+
+Q)we can specify only fields to show?
+	yearly (command)
+	monthly (command)
+	weekly (command)
+	daily (comand)
+	hourly (command)
+	minute (command)
+	reboot (command)
+
+and another method available
+	/etc/cron.d/ (or) /etc/cron.daily/ (or)/etc/cron.weekly/
+	place the scripted file here to do the tasks in deamon
+
+
+SSH (secure shell):
+------------------
+a)introduction
+b)ssh installation & configuration
+c)using ssh for remote connection
+d)copy & transfer files using ssh
+e)ssh & other services
+f)secure the ssh
+
+a)introduction:
+--------------
+Q)what is ssh?
+	- secure shell (or) ssh is a n/w protocol to connect remote servers & exchange the data b/w computers in a secure way.
+	- using this we can execute commands in remote machine
+	- to copy we use scp & sftp by 
+
+			ssh
+	clinet machine 	----> remote server
+	(ssh clinet)		(ssh server)
+- here to communicate with remote server, you need clinet machine with ssh client setup
+- server remote has ssh server
+- communication b/w machines in a secure way.
+- default port of ssh "22"
+
+Q) history?
+- till 1995 password sniffing is a major problem.
+- in 1995 ssh 1st version published
+- end of 1995 20,000 users adopted ssh
+	- tatuylonen founder of ssh
+- in 1999 openssh free version
+- in 2005 openssh was the single most popular ssh implementation coming by default in a lare number of os.
+
+Q)what are the secure shell uses?
+- for login to remote shell of remote host.
+- for executing the commands on remote host
+- secure file transfer.
+- in combination rsync to backup, copy & mirror files efficiently & securely.
+
+b)ssh installation & configuration:
+----------------------------------
+- server allows you to conect me, client allows you to connect another system.
+- to install ssh server
+	-> yum -y install openssh-server
+- to install ssh client
+	-> yum -y install openssh-clients
+- to check the ssh version
+	-> ssh -V
+- to start/stop/restart ssh
+	-> systemctl start/stop/restart sshd
+in windows:
+----------
+- url: www.mls-software.com
+- download & install
+- ssh -V (check the version)	
+
+c)using ssh for remote connection:
+----------------------------------
+	-> ssh (username)@(ip)  or -> ssh -l (user name) (ip)
+eg:
+	-> ssh root@192.168.55.66 or -> ssh -l root 192.168.55.66
+	
+- to see the known_hosts
+	/root/.ssh/known_hosts or /home/(user name)/.ssh/known_hosts
+Q)can we connect ssh on different port?	
+	yes
+Q)how can you do?
+- open the "/etc/ssh/sshd_config" file and goto "#port 22"
+- change the port as your wish
+	Port 322
+- then restart the ssh
+	-> systemctl restart sshd
+- to connect the 322 port open the port in firewall
+	-> firewall-cmd --add-port=322/tcp
+- to connect client with the remote host shell you can use the new port.
+	ssh -p 322 root@ip 
+Q)how can i login to particular directory?
+	
+ -t -p 322 root@ip "cd /opt ;bash"
+Q)how can i execute a command on remote host using ssh?
+	without login we can execute command on remote host
+	ssh -p 322 root@ip "mkdir /opt/abc"
+
+d)copy & transfer files using ssh:
+---------------------------------
+
+scp (secure copy):
+-----------------
+	copy the files between the servers in secure way. data transmitting is encrypted.
+	- scp (file1) (file2).. (username)@(ip):(path to copy) --> copy from current server to remote 
+	- scp (username)@(ip):(path of file) (path to copy) --> copy from remote server to current
+	- scp -r (dir1) (dir2).. (username)@(ip):(path to copy) --> copy dir from cureent server to remote
+	- scp -r (username)@(ip):(path of file) (path to copy) --> copy dir from server to current host.
+
+sftp:
+----
+	file transfer protocol, for transfering files between servers
+	- yum -y install sftp
+	- sftp (ip)
+ 		username :
+		password:
+	- ls (remote files list)
+	- lls (local list)
+	- cd (change directory in remote)
+	- lcd (cd in local)
+	- get (file) (download file from remote to local)
+	- mget (for multiple files download)
+	- put (file) (upload from local to remote)
+	- mput (for multiple files upload)
+
+e)secure ssh:
+------------
+i)change default port.
+	vi /etc/ssh/sshd_config
+	"#Port 22" to "Port 3212"(as your wish)
+	-> systemctl restart sshd (because configuration file is changed)
+ii)disable root login access
+	vi /etc/ssh/sshd_config
+	"#PermitRootLogin yes" to "PermitRootLogin no" 
+	-> systemctl restart sshd (because configuration file is changed)
+iii)allow particular users
+	vi /etc/ssh/sshd_config
+	- end of the file
+	#allow users
+	AllowUsers ramu (user name) ....
+iv)allow particular hosts
+	vi /etc/hosts.allow
+	- end of the file
+	sshd: 192.168.43.56, (ip)
+v)deny particular hosts
+	vi /etc/hosts.deny
+	- end of file
+	sshd: 192.168.43.56 
+	sshd: ALL (deny all hosts to this machine)
+- here deny file read first then that allow. if same ip's in same file allow rule override deny rule
+	
+vi)publickey authentication
+- without password we can login to the remote system.
+- in users ".ssh" directory diffeent file are their
+	- authorized_keys (it stores the public key of the hosts)
+	- known_hosts	(stores kowns hosts, such as ip's)
+	- id_rsa	(private key)
+	- id_rsa.pub	(public key)
+- generrate pubkey & private key
+	-> ssh-keygen -b 2048 -t rsa
+	it will generate pu&private key 
+ ssh-keygen -b 2048 -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/(user)/.ssh/id_rsa):
+Created directory '/home/(user)/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/(user)/.ssh/id_rsa.
+Your public key has been saved in /home/(user)/.ssh/id_rsa.pub.
+The key fingerprint is:
+c0:2b:63:65:7f:5e:cd:6c:b3:34:45:e8:5f:cf:63:de arjun@localhost.localdomain
+The key's randomart image is:
++--[ RSA 2048]----+
+|               ..|
+|     .        .. |
+|      =      .  .|
+|     o +     +...|
+|    + . S . . Ooo|
+|   . o   o . o *+|
+|          .   + o|
+|               .E|
+|                 |
++-----------------+
+	- check the user ".ssh" directory
+	-> chmod 600 /home/(user)/.ssh/id_rsa
+	-> chmod 700 /home/(user)/.ssh
+- to login to the machine without password we ca use pub&private key
+- paste the "id_rsa.pub" to "authorized_keys" 
+	-> chmod 600 authorized_keys
+- to login without password change in "sshd_config" file
+	-> vi /etc/ssh/sshd_config
+	change "#PubKeyAuthentication no" to "PubKeyAuthentication yes"
+- resart sshd
+	-> systemctl restart sshd
+- now we can login to the remote host using the key
+	-> ssh (user)@(ip) -i (private-key)
+- to login to the another remote machine without password 	
+	-> ssh-copy-id (user)@(ip)
+	enter password of (ip):
+	try login with ssh (user)@(ip)	(without password we can login that remote machine)
+vi)disable password authentication
+
+- to disable password authentication
+	-> vi /etc/ssh/sshd_config
+	change "PasswordAuthentication yes" to "PasswordAuthentication no"
+- restart sshd
+	-> systemctl restart sshd
+- now you can login with private key in a secure way  
+		 
+
+
+
+process management:
+------------------
+	process is a running status of a program, here we can manage the process and see the running process in system also.
+
+Q)what is PID?
+	it is a process id in system. every process has a unique id 
+Q)what is PPID?
+	it is parent prcess id, it will generate another process
+
+a)ps:
+-----
+	it is first command to see the process, it shows the 'ps' process and runnig on which shell (bash)
+ 	it shows like below
+	pid	tty	time	cmd
+
+b)ps -l:
+--------
+	it shows long information of ps like ppid, etc..
+
+c)ps -e:
+--------
+	it shows all running process in the system. like pid, time, cmd.
+
+d)ps -el:
+--------
+	it shows all running process in the system with long information. like uid, pid, time, cmd.
+
+e)ps -ef:
+---------	
+	it shows the long information of all running process in a machine. like uid,pid,ppid,time,cmd, etc..
+
+f)ps -aux:
+----------
+	it shows the long information of all running process in a machine. like user, %cpu, %memory, start time, status time
+
+g)top:
+------
+	top is a command to see the process at current running time at time. it display runnig process number, memory, swap, pid, user
+
+Q) how to check server uptime?
+	-> uptime
+Q)how to see memory & swap memory?
+	-> free 
+	-> free -m (to see in megabytes) 
+Q)how to start a process in daemon?
+	eg: seq 1000000 > abc & (for daemon background)
+Q)how to kill process in machine?
+	-> kill (process id)
+	-> kill 1526
+another method
+	-> top
+	enter 'k'
+	enter pid 'process id'
+	enter signal 'default'
+Q)to kill a user process?
+	-> pkill -u (user name)
+	-> pkill -u ram
+
+2)jobs:
+------
+	when we create a process it has a number that number is called job
+- to shows running jobs
+	-> jobs
+- we can stop the process by 'ctrl+z'
+	-> jobs (see the stopped & running process)
+- we can start the process in "back ground" & "fore ground"
+	-> fg (job number)	-> in foreground
+	-> bg (job number)	-> in back ground
+
+
+System statistics:
+------------------
+1)vmstat:
+---------
+	"vmstat" is a command is used to reporting the process activity like "cpu", "memory", "input", "output" 
+- to show swap,memory,cpu,etc..
+	-> vmstat
+- to show all information of vmstat
+	-> vmstat -a
+- to show report  frequent times
+	-> vmstat 4 5 (display 5 times for every 4 seconds)
+- to see memory in megabytes
+	-> vmstat -m 2 5
+- to see time stamp
+	-> vmstat -t 4 5
+- to see hardisk information
+	-> vmstat -d
+
+2)IOSTAT:
+---------
+	it is used to display cpu, disk i/o statistics. by default this command is not available
+	-> yum -y install sysstat
+- to shows cpu, hdd i/o statistics
+	-> iostat
+	-> iostat -c (shows cpu info)
+	-> iostat -d (shows hdd info)
+
+LSOF(list of open files):
+-------------------------
+	'lsof' command is used to display the list of all open files & process
+- to install lsof
+	-> yum -y install lsof
+- to show open files & process
+	-> lsof | less
+- to show the "txt" based open files
+	-> lsof | grep "txt" | less
+- to see the users process & files	
+	-> lsof -u ram (user name)
+- to exclude user process  & files
+	-> lsof -i -u^root
+- to see process running on particular port 
+	-> lsof -i Tcp:22
+- to see list of all n/w connection
+	-> lsof -i
+- to see number of files on the process
+	-> lsof -p (pid) 
+- to see the process between ports
+	-> lsof -i Tcp:1-25
+
+tcpdump:
+-------
+	packet analizer tool, which is used to filter (or) capture the trasnmitted & receiving packets over the network.
+- to install tcpdump
+	-> yum -y install tcpdump
+- we can capture from particular interface
+	-> tcpdump -i eth0 (it shows source ip, destination ip, ack, win, length)
+- to display all n/w interfaces
+	-> tcpdump -D
+- to display packet in ASCII & Hexadecimal
+	-> tcpdump -xx -i etho
+- to redirect the packets data to a file
+	-> tcpdump -w dump.log(file name) -i eth0
+- we can't read the dump.log file, to read that file
+	-> tcpdump -r dump.log	
+- to captue only tcp & 10 packets
+	-> tcpdump -c 10 -i eth0
+-  to capture how many packets using particular port
+	-> tcpdump -c 10 -i eth0 port 22
+- to capture how many packets using src ip
+	-> tcpdump -i eth0 src 145.22.3.6(ip)
+- to capture packets of destination host
+	-> tcpdump -i eth0 dst 145.22.3.6(ip)
+
+ 
+systemd:
+-------
+	it is a system & service manager in Linux. used to start,stop & manage multiple services & units.
+system units:
+------------
+	- service
+	- device
+	- socket
+	- mount
+	- swap
+	- path, etc..
+1)systemctl:
+-----------
+	manage to run multiple service & units.
+- to display all in units in system.
+	-> systemctl list-units -all
+- to display service units
+	-> systemctl list-units --type=service
+- to start/stop/restart a service
+	-> systemctl start/stop/restart (service.name)
+- to enable/disable servie
+	-> systemctl enable/disable (service.name)
+- to check service/unit active or not
+	-> systemctl is-active (unit name)
+- to check service/unit enable or not
+	-> systemctl is-enable (unit name)
+- to mask/unmask the service
+	-> systemctl mask/unmask (service name)
+
+
+Screen utility:
+--------------
+	we can run mutliple screen on single terminal
+- to install screen
+	-> yum -y install screen
+- to start a screen
+	-> screen (it starts new screen)
+- to switch the screens
+	-> ctrl+a+n
+- to goback to the previous screen
+	-> ctrl+a+b
+- to exit from the screen
+	-> exit
+
+vnc-server:
+----------
+	to see the linux in desktop mode.
+- install vnc-server in linux
+	-> yum -y install tigervnc-server
+- to connect in desktop mode install vnc-client in windows.
+	www.realvnc.com/download/viewer (download exe file)
+- to connect vnc-server use port 5901
+
